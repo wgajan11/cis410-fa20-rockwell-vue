@@ -25,33 +25,33 @@
 
 
 <script>
-// import axios from 'axios';
-// export default {
-//     data(){
-//         return{
-//             reviewsByUser: null,
-//             accountError: false
-//         }
-//     },
-//     computed:{
-//     firstName(){
-//         console.log(this.$store.state)
-//         return this.$store.state.user.NameFirst}
-//     },
-//     created(){
-//         axios.get("/reviews/me", {
-//             headers: {
-//                 Authorization: `Bearer ${this.$store.state.token}`
-//             }
-//         })
-//         .then((response)=>{ 
-//             console.log("here is the reviews/me response:", response)
-//             this.reviewsByUser = response.data})
-//         .catch(()=>{
-//             this.accountError = true
-//         })
-//     }
-// }
+import axios from 'axios';
+export default {
+    data(){
+        return{
+            reviewsByUser: null,
+            accountError: false
+        }
+    },
+    computed:{
+    firstName(){
+        console.log(this.$store.state)
+        return this.$store.state.user.nameFirst}
+    },
+    created(){
+        axios.get("/reviews/me", {
+            headers: {
+                Authorization: `Bearer ${this.$store.state.token}`
+            }
+        })
+        .then((response)=>{ 
+            console.log("here is the reviews/me response:", response)
+            this.reviewsByUser = response.data})
+        .catch(()=>{
+            this.accountError = true
+        })
+    }
+}
 </script>
 
 <style scoped>

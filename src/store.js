@@ -10,7 +10,7 @@ export default new Vuex.Store({
     state:{
         token: null,
         user: null,
-        movies: []
+        products: []
     },
     mutations:{
         storeTokenInApp(state, myToken){
@@ -18,24 +18,24 @@ export default new Vuex.Store({
         },
         storeUserInApp(state, myUser){
             state.user = myUser 
+        },
+        storeProducts(state, myProducts){
+            state.products = myProducts
         }
-        // storeMovies(state, myMovies){
-        //     state.movies = myMovies
-        // },
         // clearAuthData(state){
         //     state.token = null;
         //     state.user = null;
         // }
     },
     actions:{
-        // getMovies({commit}){
-        //     axios.get('/movies')
-        //     .then((myResponse)=>{
-        //         console.log("response from getMovies action", myResponse);
-        //         commit('storeMovies', myResponse.data)
-        //     })
-        //     .catch(()=>{console.log("error in getMovies action")})
-        // },
+        getProducts({commit}){
+            axios.get('/products')
+            .then((myResponse)=>{
+                console.log("response from getProducts action", myResponse);
+                commit('storeProducts', myResponse.data)
+            })
+            .catch(()=>{console.log("error in getMovies action")})
+        },
         // logout({commit, state}){
         //     axios.post('/contacts/logout', null,{
         //         headers:{
